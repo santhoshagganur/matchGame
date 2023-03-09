@@ -1,0 +1,16 @@
+.tab-item {
+  margin-right: 20px;
+}
+
+.tab-button {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  border-width: 0;
+  background-color: transparent;
+}
+
+.decision {
+  color: #fec653;
+  text-decoration: underline;
+}
