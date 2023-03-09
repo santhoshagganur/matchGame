@@ -1,20 +1,37 @@
 import {Component} from 'react'
 import Thumbnails from '../Thumbnails'
+import TabItem from '../TabItem'
 import './index.css'
 
 class MatchGame extends Component {
-  state = {activeTab: '', thumbnailsList: []}
+  state = {activeTab: 'FRUIT'}
 
-  changeModule = tabId => {
-    this.setState({activeTab: tabId})
+  changeActiveTab = id => {
+    this.setState({activeTab: id})
   }
 
-  getActiveThumbnails
+  getThumbnailsList = () => {
+    const {activeTab} = this.state
+    const {imagesList} = this.props
+    return imagesList.filter(each => each.category === activeTab)
+  }
+
+  getMatchImage = () => {
+    const {imagesList} = this.props
+    const imageIndex = Math.floor(Math.random() * imagesList.length)
+    const imageDetails = imagesList[imageIndex]
+    console.log(imageDetails)
+    return (
+      <img src={imageDetails.imageUrl} alt="match" className="match-image" />
+    )
+  }
 
   render() {
-    const {tabsList, imagesList} = this.props
+    const {tabsList} = this.props
 
-    const activeThumbnails = this.getActiveThumbnails()
+    const thumbnails = this.getThumbnailsList()
+
+    console.log(thumbnails)
 
     return (
       <div className="bg-container">
@@ -38,27 +55,20 @@ class MatchGame extends Component {
             </div>
           </div>
           <div className="bottom-container">
-            <img
-              src="https://assets.ccbp.in/frontend/react-js/match-game/cherry-img.png"
-              alt="match"
-              className="match-image"
-            />
+            {this.getMatchImage}
             <ul className="tabs-container">
               {tabsList.map(each => (
-                <li className="tab-item">
-                  <button
-                    type="button"
-                    className="tab-button"
-                    onClick={this.changeModule(each.tabId)}
-                  >
-                    {each.displayText}
-                  </button>
-                </li>
+                <TabItem
+                  eachItem={each}
+                  key={each.tabId}
+                  changeActiveTab={this.changeActiveTab}
+                  activeTab={this.state}
+                />
               ))}
             </ul>
 
             <ul className="thumbnails-container">
-              {imagesList.map(each => (
+              {thumbnails.map(each => (
                 <Thumbnails eachItem={each} key={each.id} />
               ))}
             </ul>
