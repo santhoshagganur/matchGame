@@ -6,7 +6,7 @@
 .app-container {
   background-image: url('https://assets.ccbp.in/frontend/react-js/match-game-bg.png');
   width: 60vw;
-  height: 100vh;
+  min-height: 100vh;
   background-size: cover;
 }
 
@@ -88,4 +88,58 @@
   justify-content: center;
   list-style-type: none;
   flex-wrap: wrap;
+}
+
+.trophy {
+  height: 30vh;
+  background-size: cover;
+  margin-top: 30vh;
+}
+
+.result-container {
+  background-color: #cf60c8;
+  width: 80vw;
+}
+
+.score-card {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/match-game-score-card-lg-bg.png');
+  width: 40vw;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.yours-score {
+  font-family: Roboto;
+  font-size: 40px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.your-score {
+  font-weight: bold;
+}
+
+.play-again {
+  background-color: #cf60c8;
+  border-radius: 5px;
+  border-width: 0;
+  padding: 10px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .app-container {
+    width: 100vw;
+  }
+  .nav-bar {
+    width: 100vw;
+  }
+  .score-card {
+    width: 70vw;
+    background-size: cover;
+  }
 }
