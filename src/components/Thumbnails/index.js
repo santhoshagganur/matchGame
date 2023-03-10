@@ -1,13 +1,19 @@
 import './index.css'
 
 const Thumbnails = props => {
-  const {eachItem} = props
-  const {thumbnailUrl} = eachItem
+  const {eachItem, getUpdatedScore} = props
+  const {thumbnailUrl, id} = eachItem
+
+  const changeScore = () => {
+    getUpdatedScore(id)
+  }
 
   return (
-    <li>
-      <img src={thumbnailUrl} alt="thumbnail" className="thumbnail" />
-    </li>
+    <button type="button" className="list-button" onClick={changeScore}>
+      <li>
+        <img src={thumbnailUrl} alt="thumbnail" className="thumbnail" />
+      </li>
+    </button>
   )
 }
 
