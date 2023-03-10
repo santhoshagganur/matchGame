@@ -3,3 +3,8 @@
   background-size: cover;
   margin: 15px;
 }
+
+.list-button {
+  background-color: transparent;
+  border-width: 0;
+}
